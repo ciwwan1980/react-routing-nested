@@ -24,16 +24,12 @@ export default class Home extends React.Component {
                 {topProducts && topProducts.map((topProduct, index) => {
               return (
 
-                //???????? why we went here in Home to topProduct.slug
-
-
-                <Link to={`/products/${topProduct.slug}`}>
-
-                  <div className="inner-div">
-              <h3>{topProduct.name}</h3>
-              <span>{topProduct.price}</span>
-                  </div>
-                  </Link>
+              <Link to={`/products/${topProduct.slug}`}>
+                <div className="inner-div">
+                  <h3>{topProduct.name}</h3>
+                  <span>{topProduct.price}</span>
+                </div>
+              </Link>
                   )
                 })}
                 
