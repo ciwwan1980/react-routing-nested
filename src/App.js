@@ -2,7 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import {BrowserRouter as Router, Route,Switch } from "react-router-dom"
 import './App.css';
-import Home from "./components/Home"
+import Home from "./components/Home"; 
+import Products from "./components/Products"; 
 
 
 class App extends React.Component {
@@ -37,7 +38,7 @@ fetchData=async()=>{
           <Switch>
 
     <Route exact path="/" render={(props)=><Home {...props} data={this.state.Data}/>} />
-   
+       <Route exact path="/products" render={(props)=><Products {...props} data={this.state.Data}/>} />
           </Switch>
         </div>
       </Router>
