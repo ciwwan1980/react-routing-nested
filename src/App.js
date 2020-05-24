@@ -13,6 +13,7 @@ state={
 
 componentDidMount(){
 this.fetchData()
+console.log("componentDidMount")
 }
 
 fetchData=async()=>{
@@ -25,6 +26,8 @@ fetchData=async()=>{
 
 }
   render() {
+
+    console.log("render")
     return (
       <Router>
 

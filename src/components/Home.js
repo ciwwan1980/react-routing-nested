@@ -18,8 +18,7 @@ export default class Home extends React.Component {
             Products
             </Link>
             </span>
-
-    
+  
                 <div className="outer-div">
 
                 {topProducts && topProducts.map((topProduct, index) => {
