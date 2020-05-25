@@ -3,10 +3,15 @@ import ProductItem from "./ProductItem";
 
 export default class Products extends Component {
 
-
-    state={
-        products:[...this.props.data]
+constructor(props){
+    super(props)
+      this.state={
+        products:[...this.props.data],
+        search:""
     }
+}
+
+  
 
     asc=()=>{
 
@@ -44,6 +49,22 @@ export default class Products extends Component {
 
 // in render, can we have only one return 
 
+
+filter=(e)=>{
+  
+    this.setState({
+        search:e.target.value,
+    }
+        
+    )
+    console.log(this.state.search)
+        const filterArray= [...this.props.data].filter(product=>product.name.slice(0,this.state.search.length).toLowerCase()===(this.state.search).toLowerCase())
+        console.log(filterArray)
+        this.setState({
+            products:filterArray
+        })
+}
+
     render() {
         
      
@@ -58,16 +79,21 @@ export default class Products extends Component {
                 <div className="btn1" onClick={this.asc}>Sort &#8593; </div>
                 <div className="btn1" onClick={this.des}>Sort &#8595;</div>
                 </main>
+                <h2>
+                  <span onClick={()=>this.props.history.goBack()}>&#8249;</span>
+                  Products </h2>
 
+                  <input type="text" onChange={this.filter}/>
+              
                 <div className="container">
                 <div className="sub-container">
                 <h3>Name</h3>
-                <h3>shortDecription</h3>
+                <h3>shortDecription</h3> 
                 <h3>Price</h3>
                 </div>
 
                 <div className="container">
-            <ProductItem data={this.props.data}/>
+            <ProductItem data={this.state.products}/>
 
        
                 </div>
