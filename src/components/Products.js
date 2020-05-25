@@ -1,11 +1,46 @@
 import React, { Component } from 'react'
-import ProductDetails from "./ProductDetails"; 
+import ProductItem from "./ProductItem"; 
 
 export default class Products extends Component {
+
 
     state={
         products:[...this.props.data]
     }
+
+    asc=()=>{
+
+        console.log(this.state.products)
+    let ascData=this.props.data.sort((a,b)=>{
+        if (a.price>b.price){
+            return -1
+        }else{
+            return 1
+        }
+    
+    })
+    console.log(ascData)
+    this.setState({
+        products:ascData, 
+    })
+}
+
+    des=()=>{
+
+        console.log(this.state.products)
+    let desData=this.props.data.sort((a,b)=>{
+        if (a.price>b.price){
+            return 1
+        }else{
+            return -1
+        }
+    
+    })
+ 
+    this.setState({
+        products:desData, 
+    })
+}
 
 // in render, can we have only one return 
 
@@ -32,9 +67,9 @@ export default class Products extends Component {
                 </div>
 
                 <div className="container">
-            {this.props.data && this.props.data.map((product,i)=> <ProductDetails  key={i} product={product}/>
-        
-        )}
+            <ProductItem data={this.props.data}/>
+
+       
                 </div>
 
                 

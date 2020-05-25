@@ -12,15 +12,19 @@ export default class Home extends React.Component {
       console.log(topProducts)
         return(
          
-            <div>
+            <div className="top">
+            <div className="main-header">
+         
             <h1>Welcome visitor</h1>
             
             <span>
+            
             <Link  to="/products">
   
               <div className="productsName">Products</div>
             </Link>
             </span>
+               </div>
   
                 <div className="outer-div">
 
