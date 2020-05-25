@@ -54,15 +54,17 @@ filter=(e)=>{
   
     this.setState({
         search:e.target.value,
-    }
-        
-    )
-    console.log(this.state.search)
+    },()=>{
+            console.log(this.state.search)
         const filterArray= [...this.props.data].filter(product=>product.name.slice(0,this.state.search.length).toLowerCase()===(this.state.search).toLowerCase())
         console.log(filterArray)
         this.setState({
             products:filterArray
         })
+    }
+        
+    )
+
 }
 
     render() {
