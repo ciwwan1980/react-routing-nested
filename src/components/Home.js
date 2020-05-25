@@ -6,6 +6,8 @@ export default class Home extends React.Component {
 
     render() {
       console.log(this.props.data, "here in Home")
+      //???? why shall in render we write the first condition, if there is this.props.data, 
+      // maybe we shall use spread operator
       const topProducts =this.props.data && this.props.data.sort((a, b) => b.price - a.price).slice(0,4);
       console.log(topProducts)
         return(
@@ -16,7 +18,7 @@ export default class Home extends React.Component {
             <span>
             <Link  to="/products">
   
-              <div className="products">Products</div>
+              <div className="productsName">Products</div>
             </Link>
             </span>
   
@@ -26,6 +28,7 @@ export default class Home extends React.Component {
               return (
 
               <Link to={`/products/${topProduct.slug}`}>
+
                 <div className="inner-div">
                   <h3>{topProduct.name}</h3>
                   <span>{topProduct.price}</span>
@@ -37,7 +40,7 @@ export default class Home extends React.Component {
                 </div>
               
             <div>
-             
+            
             </div>
               </div>
             

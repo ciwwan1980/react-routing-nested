@@ -4,17 +4,21 @@ import {BrowserRouter as Router, Route,Switch } from "react-router-dom"
 import './App.css';
 import Home from "./components/Home"; 
 import Products from "./components/Products"; 
-
+import ProductPage from "./components/ProductPage"; 
 
 class App extends React.Component {
-
-state={
+constructor(){
+  super()
+  this.state={
     Data:[]
 }
+console.log("reading state first")
+}
 
+//in console.log(i have two times date fetch?????????)
 componentDidMount(){
 this.fetchData()
-console.log("componentDidMount")
+// console.log("componentDidMount")
 }
 
 fetchData=async()=>{
@@ -37,8 +41,9 @@ fetchData=async()=>{
 
           <Switch>
 
-    <Route exact path="/" render={(props)=><Home {...props} data={this.state.Data}/>} />
-       <Route exact path="/products" render={(props)=><Products {...props} data={this.state.Data}/>} />
+      <Route exact path="/" render={(props)=><Home {...props} data={this.state.Data}/>} />
+      <Route exact path="/products" render={(props)=><Products {...props} data={this.state.Data}/>} />
+      <Route  exact path="/products/:slug" render={(props)=><ProductPage {...props} data={this.state.Data}/>}/>
           </Switch>
         </div>
       </Router>

@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import ProductDetails from "./ProductDetails"; 
-import "./products.css"
-
-
 
 export default class Products extends Component {
 
@@ -10,19 +7,15 @@ export default class Products extends Component {
         products:[...this.props.data]
     }
 
+// in render, can we have only one return 
 
     render() {
         
-        const allProducts= this.props.data&&this.props.data.map((product,i)=>{
-            return(
-                <ProductDetails  key={i} product={product}/>
-            )
-        })
+     
         return (
             <div class
             
             // here we show only when we prsee on products, we have all information of products
-            
             
             Name="products">
                 <main style={{display:"flex", justifyContent:"center", padding:"20px"}}>
@@ -31,23 +24,26 @@ export default class Products extends Component {
                 <div className="btn1" onClick={this.des}>Sort &#8595;</div>
                 </main>
 
-                <table>
-                <thead>
-                <tr>
-                <th>Name</th>
-                 <th>shortDecription</th>
-                  <th>Price</th>
-                </tr>
-                </thead> 
+                <div className="container">
+                <div className="sub-container">
+                <h3>Name</h3>
+                <h3>shortDecription</h3>
+                <h3>Price</h3>
+                </div>
+
+                <div className="container">
+            {this.props.data && this.props.data.map((product,i)=> <ProductDetails  key={i} product={product}/>
+        
+        )}
+                </div>
+
                 
-                <tbody>
-                {allProducts}
-                </tbody>
-                </table>
-               
-               
+                </div>
+            
                
             </div>
         )
     }
 }
+
+
